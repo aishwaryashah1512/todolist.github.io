@@ -157,7 +157,11 @@ list.findOneAndUpdate({name:req.body.listname},{$pull:{items:{_id:removeitem}}},
 }
 });
 
-app.listen(3000, function()
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port,funtion()
 {
   console.log("Server started on port 3000.");
 });
