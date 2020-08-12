@@ -19,6 +19,7 @@ const itemsSchema=new mongoose.Schema
 ({
   name:String
 });
+
 const item=mongoose.model("item",itemsSchema);
 
 const item1=new item({
@@ -158,10 +159,11 @@ list.findOneAndUpdate({name:req.body.listname},{$pull:{items:{_id:removeitem}}},
 });
 
 let port = process.env.PORT;
-if (port == null || port == "") {
+if (port == null || port == "")
+{
   port = 3000;
 }
-app.listen(port,funtion()
+app.listen(port,function()
 {
-  console.log("Server started on port 3000.");
+  console.log("server running at 3000");
 });
